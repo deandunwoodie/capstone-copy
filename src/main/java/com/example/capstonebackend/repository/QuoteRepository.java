@@ -9,5 +9,5 @@ public interface QuoteRepository extends JpaRepository<Quote, Long> {
 
 //    List<Quote> findByFirstNameAndLastName(String firstName, String lastName);
 
-
+//
 }
