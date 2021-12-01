@@ -19,6 +19,7 @@ public class QuoteController {
     }
 
     @GetMapping("/quotes/{quoteID}")
+    @CrossOrigin(origins="http://localhost:3000")
     Quote getQuoteById(@PathVariable Long quoteID) {
         try {
             return quoteService.getQuoteById(quoteID);
@@ -28,12 +29,6 @@ public class QuoteController {
         }
     }
 
-    @GetMapping("/hello")
-    @CrossOrigin(origins="http://localhost:3000")
-    String helloWord(){
-        return "Hello World";
-    }
-
     @PostMapping("/quotes")
     @CrossOrigin(origins="http://localhost:3000")
     Quote POSTQuote(@RequestBody Quote Quote) {
@@ -41,11 +36,25 @@ public class QuoteController {
     }
 
     @GetMapping("/quotes")
+    @CrossOrigin(origins="http://localhost:3000")
     List<Quote> getAllQuotes() {
         return quoteService.getAllQuotes();
     }
 
+
+    @PutMapping("/quotes/{quoteID}")
+    @CrossOrigin(origins="http://localhost:3000")
+    Quote updateDriverById(@RequestBody Quote quoteUpdate, @PathVariable Long quoteID) {
+        try {
+            return quoteService.updateQuoteById(quoteUpdate, quoteID);
+        } catch (NoSuchElementException noSuchElementException) {
+            throw new ResponseStatusException(
+                    HttpStatus.NOT_FOUND,"Quote ID Not Found" + quoteID, noSuchElementException);
+        }
+    }
+
     @DeleteMapping("/quotes/{quoteID}")
+    @CrossOrigin(origins="http://localhost:3000")
     ResponseEntity<Long> deleteQuoteById(@PathVariable Long quoteID) {
         try {
             quoteService.getQuoteById(quoteID);
