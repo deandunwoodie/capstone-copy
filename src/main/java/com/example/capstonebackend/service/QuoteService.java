@@ -4,6 +4,7 @@ import com.example.capstonebackend.model.Quote;
 import com.example.capstonebackend.repository.QuoteRepository;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -12,6 +13,7 @@ public class QuoteService {
 
     private final QuoteRepository quoteRepository;
     private final QuoteCalculationService quoteCalculationService;
+    List<Quote> quotes = new ArrayList<>();
 
     public QuoteService(QuoteRepository quoteRepository, QuoteCalculationService quoteCalculationService) {
         this.quoteRepository = quoteRepository;
@@ -24,6 +26,8 @@ public class QuoteService {
 
     // C - CREATE
     public Quote saveQuote(Quote quote){
+        quote.setQuoteTotalCost(quoteCalculationService.calculateQuote(quote));
+        quotes.add(quote);
         return quoteRepository.save(quote);
     }
 
