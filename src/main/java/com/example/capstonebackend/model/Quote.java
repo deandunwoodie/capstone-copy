@@ -32,7 +32,7 @@ public class Quote {
     private String quoteNoAdditionalDrivers;
     private String quoteIsCommercial;
     private String quoteIsRegistered;
-    private Long quoteVehicleValue;
+    private double quoteVehicleValue;
     private String quoteRegistrationDate;
 
     public void setQuoteTotalCost(double quoteTotalCost) {
@@ -153,11 +153,11 @@ public class Quote {
         this.quoteIsRegistered = quoteIsRegistered;
     }
 
-    public Long getQuoteVehicleValue() {
+    public double getQuoteVehicleValue() {
         return quoteVehicleValue;
     }
 
-    public void setQuoteVehicleValue(Long quoteVehicleValue) {
+    public void setQuoteVehicleValue(double quoteVehicleValue) {
         this.quoteVehicleValue = quoteVehicleValue;
     }
 

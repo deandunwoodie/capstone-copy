@@ -61,10 +61,10 @@ INSERT INTO QUOTES
 )
 VALUES
     (
-        3,
+        2,
         'Mr',
-        'Dean',
-        'Dunwoodie',
+        'Paul',
+        'Smith',
         '07497862854',
         '24 Levin Road',
         'Lurgan',

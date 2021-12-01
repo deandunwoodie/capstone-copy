@@ -71,8 +71,8 @@ public class QuoteCalculationService {
             case 3000:
                 engineTypeFactor = EngineSizeFactor.SIZE3000.getFactorValue();
                 break;
-//            case other:
-//                engineTypeFactor = EngineSizeFactor.OTHER.getFactorValue();
+            default:
+                engineTypeFactor = EngineSizeFactor.OTHER.getFactorValue();
         }
 
         return engineTypeFactor;
