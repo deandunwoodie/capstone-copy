@@ -234,8 +234,9 @@ class QuoteCalculationServiceTest {
         assertEquals(expectedResult, actualResult);
 
     }
-
 }
+
+
 
 
 
